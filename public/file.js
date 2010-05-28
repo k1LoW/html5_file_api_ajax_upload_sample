@@ -38,7 +38,7 @@ function upload(e){
         var reader = new FileReader();
         reader.onload = function(event){
             $.ajax({
-                url : '/upload',
+                url : 'upload.php',
                 type : 'post',
                 data : reader.result,
                 dataType : 'json',
@@ -48,7 +48,7 @@ function upload(e){
                             var m = RegExp.$1;
                             $('<a>').attr('href', '/' + m).text(m).wrap('<p>').appendTo('#response');
                         } else {
-                            $('<p>').text(elem).appendTo('#response');
+                            $('<p>').html(elem).appendTo('#response');
                         }
                     });
                     $('.indexes').show();
